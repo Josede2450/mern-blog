@@ -25,3 +25,14 @@ app.listen(3000, () => {
 
 app.use("/api/user", userRoutes); //That work for test our API
 app.use("/api/auth", authRoute); //That work for signup our API
+
+app.use((err, req, res, next) => {
+  //Middleware
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+  res.status(statusCode).json({
+    sucess: false,
+    statusCode,
+    message,
+  });
+});
