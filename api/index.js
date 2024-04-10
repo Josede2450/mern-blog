@@ -3,6 +3,7 @@ import { mongoose } from "mongoose"; //Import data base
 //nodemon works like a liveserver, we don't need to stop and start the program again, for see the results
 import dotenv from "dotenv"; //We Install and use dotenv for use enviroment variable
 import userRoutes from "./routes/user.route.js";
+import authRoute from "./routes/auth.route.js";
 
 dotenv.config(); //For use env in our program
 mongoose
@@ -16,8 +17,11 @@ mongoose
 
 const app = express(); //Creating the app
 
+app.use(express.json());
+
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
 
 app.use("/api/user", userRoutes); //That work for test our API
+app.use("/api/auth", authRoute); //That work for signup our API
