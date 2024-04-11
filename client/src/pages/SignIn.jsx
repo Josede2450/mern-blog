@@ -10,7 +10,6 @@ import {
 
 export default function SignIn() {
   const [formData, setFormData] = useState({}); //Use state for handle the data
-
   const { loading, error: errorMessage } = useSelector((state) => state.user);
   const dispatch = useDispatch(); // For use the global stament
   const navigate = useNavigate(); // To navigate to another page
