@@ -3,13 +3,15 @@ import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  signInSucess,
+  signInSuccess,
   signInStart,
   signInFailure,
 } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({}); //Use state for handle the data
+
   const { loading, error: errorMessage } = useSelector((state) => state.user);
   const dispatch = useDispatch(); // For use the global stament
   const navigate = useNavigate(); // To navigate to another page
@@ -40,7 +42,7 @@ export default function SignIn() {
         dispatch(signInFailure(data.message));
       }
       if (res.ok) {
-        dispatch(signInSucess(data));
+        dispatch(signInSuccess(data));
         navigate("/"); //if the sign up is correct, send it to the sign in page
       }
     } catch (error) {
@@ -108,11 +110,13 @@ export default function SignIn() {
                 "Sign In"
               )}
             </Button>
+
+            <OAuth />
           </form>
 
           <div className="flex gap-2 text-sm mt-5">
             <span>Don't have an account?</span>
-            <Link to="/sign-in" className="text-blue-500">
+            <Link to="/sign-up" className="text-blue-500">
               Sign Up
             </Link>
           </div>
