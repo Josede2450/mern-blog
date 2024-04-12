@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import DashSidebar from "../components/DashSidebar";
 import DashProfile from "../components/DashProfile";
-
+import DashSidebar from "../components/DashSidebar"; //Change the name later of this components if the problem persists
 //Displaying different components in dashboard
 
 export default function Dashboard() {

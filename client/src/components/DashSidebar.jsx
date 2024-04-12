@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
 import { Sidebar } from "flowbite-react";
-import { HiArrowSmRight, HiUser } from "react-icons/hi";
+import { HiUser, HiArrowSmRight } from "react-icons/hi";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function DashSidebar() {
@@ -13,11 +13,11 @@ export default function DashSidebar() {
       setTab(tabFromUrl);
     }
   }, [location.search]);
-
   return (
     <Sidebar className="w-full md:w-56">
       <Sidebar.Items>
         <Sidebar.ItemGroup>
+          {/* This link is giving an error */}
           <Link to="/dashboard?tab=profile">
             <Sidebar.Item
               active={tab === "profile"}
