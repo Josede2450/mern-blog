@@ -4,6 +4,7 @@ import { mongoose } from "mongoose"; //Import data base
 import dotenv from "dotenv"; //We Install and use dotenv for use enviroment variable
 import userRoutes from "./routes/user.route.js";
 import authRoute from "./routes/auth.route.js";
+import cookieParser from "cookie-parser"; // For see the cookies
 
 dotenv.config(); //For use env in our program
 mongoose
@@ -18,6 +19,7 @@ mongoose
 const app = express(); //Creating the app
 
 app.use(express.json());
+app.use(cookieParser()); // For extract cookie from the browser
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
