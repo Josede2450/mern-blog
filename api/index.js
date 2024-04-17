@@ -5,6 +5,7 @@ import dotenv from "dotenv"; //We Install and use dotenv for use enviroment vari
 import userRoutes from "./routes/user.route.js";
 import authRoute from "./routes/auth.route.js";
 import cookieParser from "cookie-parser"; // For see the cookies
+import postRoutes from "./routes/post.route.js";
 
 dotenv.config(); //For use env in our program
 mongoose
@@ -27,6 +28,7 @@ app.listen(3000, () => {
 
 app.use("/api/user", userRoutes); //That work for test our API
 app.use("/api/auth", authRoute); //That work for signup our API
+app.use("/api/post", postRoutes);
 
 app.use((err, req, res, next) => {
   //Middleware
