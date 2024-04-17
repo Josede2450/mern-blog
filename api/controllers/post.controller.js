@@ -31,12 +31,10 @@ export const create = async (req, res, next) => {
 // Show the posts controller
 export const getposts = async (req, res, next) => {
   try {
-    const startIndex = parseInt(req.query.startIndex) || 0; //Show the posts
-    const limit = parseInt(req.query.limit) || 9; //Limit the posts to 9
+    const startIndex = parseInt(req.query.startIndex) || 0;
+    const limit = parseInt(req.query.limit) || 9;
     const sortDirection = req.query.order === "asc" ? 1 : -1;
-
     const posts = await Post.find({
-      //Looking the data
       ...(req.query.userId && { userId: req.query.userId }),
       ...(req.query.category && { category: req.query.category }),
       ...(req.query.slug && { category: req.query.slug }),
