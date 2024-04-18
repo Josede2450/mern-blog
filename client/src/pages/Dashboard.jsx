@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import DashProfile from "../components/DashProfile";
 import DashSidebar from "../components/DashSidebar"; //Change the name later of this components if the problem persists
 import DashPosts from "../components/DashPosts";
+import DashUsers from "../components/DashUsers";
 //Displaying different components in dashboard
 
 export default function Dashboard() {
@@ -29,6 +30,9 @@ export default function Dashboard() {
       {/* Postss */}
 
       {tab === "posts" && <DashPosts />}
+
+      {/* Users */}
+      {tab === "users" && <DashUsers />}
     </div>
   );
 }
