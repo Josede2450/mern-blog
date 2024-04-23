@@ -7,6 +7,7 @@ import authRoute from "./routes/auth.route.js";
 import cookieParser from "cookie-parser"; // For see the cookies
 import postRoutes from "./routes/post.route.js";
 import commentRoutes from "./routes/comment.route.js";
+import path from "path"; // For render our application
 
 dotenv.config(); //For use env in our program
 mongoose
@@ -18,6 +19,7 @@ mongoose
     console.log(err);
   }); //If something goes wrong, printb the error
 
+const __dirname = path.resolve(); // Avaliable the project everywhere
 const app = express(); //Creating the app
 
 app.use(express.json());
@@ -32,6 +34,11 @@ app.use("/api/auth", authRoute); //That work for signup our API
 app.use("/api/post", postRoutes);
 app.use("/api/comment", commentRoutes);
 
+app.use(express.static(path.join(__dirname, "client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
 app.use((err, req, res, next) => {
   //Middleware
   const statusCode = err.statusCode || 500;
