@@ -5,6 +5,7 @@ import DashSidebar from "../components/DashSidebar"; //Change the name later of 
 import DashPosts from "../components/DashPosts";
 import DashUsers from "../components/DashUsers";
 import DashComments from "../components/DashComments";
+import DashboardComp from "../components/DashboardComp";
 
 //Displaying different components in dashboard
 
@@ -38,6 +39,9 @@ export default function Dashboard() {
 
       {/* comments  */}
       {tab === "comments" && <DashComments />}
+
+      {/* dashboard comp */}
+      {tab === "dash" && <DashboardComp />}
     </div>
   );
 }
