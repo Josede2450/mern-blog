@@ -4,6 +4,8 @@ import DashProfile from "../components/DashProfile";
 import DashSidebar from "../components/DashSidebar"; //Change the name later of this components if the problem persists
 import DashPosts from "../components/DashPosts";
 import DashUsers from "../components/DashUsers";
+import DashComments from "../components/DashComments";
+
 //Displaying different components in dashboard
 
 export default function Dashboard() {
@@ -33,6 +35,9 @@ export default function Dashboard() {
 
       {/* Users */}
       {tab === "users" && <DashUsers />}
+
+      {/* comments  */}
+      {tab === "comments" && <DashComments />}
     </div>
   );
 }
