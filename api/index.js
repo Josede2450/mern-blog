@@ -19,7 +19,8 @@ mongoose
     console.log(err);
   }); //If something goes wrong, printb the error
 
-const __dirname = path.resolve(); // Avaliable the project everywhere
+const __dirname = path.resolve();
+// Avaliable the project everywhere
 const app = express(); //Creating the app
 
 app.use(express.json());
@@ -34,11 +35,12 @@ app.use("/api/auth", authRoute); //That work for signup our API
 app.use("/api/post", postRoutes);
 app.use("/api/comment", commentRoutes);
 
-app.use(express.static(path.join(__dirname, "client/dist")));
+app.use(express.static(path.join(__dirname, "/client/dist")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
+
 app.use((err, req, res, next) => {
   //Middleware
   const statusCode = err.statusCode || 500;
